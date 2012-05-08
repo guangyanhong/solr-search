@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary
+END
+schema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/schema.xml
+END
+DiaryDataProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/DiaryDataProcessor.java
+END
+ThreadTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/ThreadTest.java
+END
+Base.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/Base.java
+END
+Dumper.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/Dumper.java
+END
+Searcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4diary/Searcher.java
+END

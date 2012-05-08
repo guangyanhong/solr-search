@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/terminator.iml" filepath="$PROJECT_DIR$/terminator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/terminator-client/terminator-client.iml" filepath="$PROJECT_DIR$/terminator-client/terminator-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/terminator-common/terminator-common.iml" filepath="$PROJECT_DIR$/terminator-common/terminator-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/terminator-core/terminator-core.iml" filepath="$PROJECT_DIR$/terminator-core/terminator-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/terminator-web/terminator-web.iml" filepath="$PROJECT_DIR$/terminator-web/terminator-web.iml" />
+    </modules>
+  </component>
+</project>
+

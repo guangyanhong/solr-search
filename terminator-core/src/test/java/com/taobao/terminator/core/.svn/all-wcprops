@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core
+END
+a.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/a.xml
+END
+NumberFormatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/NumberFormatTest.java
+END
+InstantIndexImportTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/InstantIndexImportTest.java
+END
+IndexFileUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/IndexFileUtilTest.java
+END
+NormTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/NormTest.java
+END
+SolrXmlDataImporterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/SolrXmlDataImporterTest.java
+END
+IndexFileFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/IndexFileFilterTest.java
+END
+QuartzJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/QuartzJob.java
+END
+TestTimeoutHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/TestTimeoutHandler.java
+END
+ChineseFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/ChineseFilter.java
+END
+ChineseAnalyzerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/ChineseAnalyzerTest.java
+END
+TimeoutTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/TimeoutTest.java
+END
+QuartzTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/QuartzTest.java
+END
+SolrDataImporterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/SolrDataImporterTest.java
+END
+ClassLoaderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/ClassLoaderTest.java
+END
+SolrXmlDocGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/SolrXmlDocGenerator.java
+END

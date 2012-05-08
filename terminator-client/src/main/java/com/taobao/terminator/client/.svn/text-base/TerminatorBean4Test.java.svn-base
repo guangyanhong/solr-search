@@ -1,0 +1,160 @@
+package com.taobao.terminator.client;
+
+import java.text.ParseException;
+import java.util.Set;
+
+import org.quartz.CronTrigger;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.impl.StdSchedulerFactory;
+
+import com.taobao.terminator.client.index.FullIndexProvideJob;
+import com.taobao.terminator.client.index.IncrIndexProvideJob;
+import com.taobao.terminator.client.index.IndexProvider4Test;
+import com.taobao.terminator.client.index.TerminatorIndexProvider;
+import com.taobao.terminator.common.ServiceType;
+import com.taobao.terminator.common.TerminatorHsfSubException;
+import com.taobao.terminator.common.constant.IndexType;
+import com.taobao.terminator.common.protocol.MasterService;
+import com.taobao.terminator.common.protocol.TerminatorService;
+import com.taobao.terminator.common.unit.TerminatorHSFContainer;
+
+public class TerminatorBean4Test extends TerminatorBean{
+	private boolean localFileTest = false;
+
+	@Override
+	protected void subscribeHSFService() throws TerminatorInitException {
+		//1.订阅TerminatorService
+		Set<String> versionSet = TerminatorHSFContainer.Utils.generateTerminatorVersions(this.serviceConfig.getCoreNameSet());
+		for(String version : versionSet){
+			logger.warn("订阅TerminatorService(搜索)HSF服务 ===> " + version);
+			try {
+				TerminatorHSFContainer.subscribeService(TerminatorService.class.getName(), version);
+			} catch (TerminatorHsfSubException e) {
+				logger.error("订阅HSF服务异常 ==> " + version);
+				throw new TerminatorInitException(e);
+			}
+		}
+		
+		//2订阅MasterService
+		Set<String> versionSet2 = TerminatorHSFContainer.Utils.generateMasterVersions(this.serviceConfig.getCoreNameSet());
+		for(String version : versionSet2){
+			logger.warn("订阅MasterService(写索引)HSF服务 ===> " + version);
+			try {
+				TerminatorHSFContainer.subscribeService(MasterService.class.getName(), version);
+			} catch (TerminatorHsfSubException e) {
+				logger.error("订阅HSF服务异常 ==> " + version);
+				throw new TerminatorInitException(e);
+			}
+		}
+	}
+
+	@Override
+	protected TerminatorService getTerminatorService(ServiceType serviceType, String coreName) {
+		return TerminatorHSFContainer.getTerminatorService(serviceType, coreName);
+	}
+	
+	protected void initIndexProviderAndStartTask()throws TerminatorInitException{
+		boolean hasFull = false;
+		boolean hasIncr = false;
+		
+		JobDetail   fullJobDetail = null;
+		JobDetail   incrJobDetail = null;
+		CronTrigger fullTrigger   = null;
+		CronTrigger incrTrigger   = null;
+		
+		if(fullDataProvider != null){
+			hasFull = true;
+			fullIndexProvider = new IndexProvider4Test(localFileTest);
+			fullIndexProvider.setCapacityInfo(fullCapacityInfo);
+			fullIndexProvider.setDataProcessor(dataProcessor);
+			fullIndexProvider.setDataProvider(fullDataProvider);
+			fullIndexProvider.setRouter(groupRouter);
+			fullIndexProvider.setServiceConfig(serviceConfig);
+			fullIndexProvider.setServiceName(serviceName);
+			fullIndexProvider.setIndexType(IndexType.FULL);
+			fullIndexProvider.setFetchDataExceptionHandler(fetchDataExceptionHandler);
+			fullIndexProvider.afterPropertiesSet();
+			
+			fullJobDetail = new JobDetail(this.getServiceName() + "-fullJobDetail", Scheduler.DEFAULT_GROUP, FullIndexProvideJob.class);
+			fullJobDetail.getJobDataMap().put(FullIndexProvideJob.INDEX_PROVIDER_NAME, fullIndexProvider);
+			fullJobDetail.getJobDataMap().put("fullServiceName", this.serviceName);
+			fullTrigger = new CronTrigger();
+			fullTrigger.setName(this.getServiceName() + "-fullTrigger");
+			try {
+				fullTrigger.setCronExpression(fullCronExpression);
+			} catch (ParseException e) {
+				throw new TerminatorInitException("全量的Cron时间表达式可能有问题 ==> " + fullCronExpression,e);
+			}
+		}else{
+			logger.warn(">>>>>>>>> 客户端没有配置全量的DataProvider,如有需要请配置该DataProvider.");
+		}
+		
+		if(incrDataProvider != null){
+			hasIncr = true;
+			incrIndexProvider = new IndexProvider4Test(localFileTest);
+			incrIndexProvider.setCapacityInfo(incrCapacityInfo);
+			incrIndexProvider.setDataProcessor(dataProcessor);
+			incrIndexProvider.setDataProvider(incrDataProvider);
+			incrIndexProvider.setRouter(groupRouter);
+			incrIndexProvider.setServiceConfig(serviceConfig);
+			incrIndexProvider.setServiceName(serviceName);
+			incrIndexProvider.setIndexType(IndexType.INCREMENT);
+			incrIndexProvider.setFetchDataExceptionHandler(fetchDataExceptionHandler);
+			incrIndexProvider.afterPropertiesSet();
+			
+			incrJobDetail = new JobDetail(this.getServiceName() + "-incrJobDetail", Scheduler.DEFAULT_GROUP, IncrIndexProvideJob.class);
+			incrJobDetail.getJobDataMap().put(IncrIndexProvideJob.INDEX_PROVIDER_NAME, incrIndexProvider);
+			incrJobDetail.getJobDataMap().put("incrServiceName", this.serviceName);
+			incrTrigger = new CronTrigger();
+			incrTrigger.setName(this.getServiceName() + "-incrTrigger");
+			try {
+				incrTrigger.setCronExpression(incrCronExpression);
+			} catch (ParseException e) {
+				throw new TerminatorInitException("增量的Cron时间表达式可能有问题 ==>" + incrCronExpression,e);
+			}
+		}else{
+			logger.warn(">>>>>>>>> 客户端没有配置增量的DataProvider,如有需要请配置该DataProvider.");
+		}
+		
+		if(!startupTimerTask){
+			logger.warn(" >>>>>>>>>>>>>>>>>  不启动增量 、全量时间任务   <<<<<<<<<<<<<<<<<<<<<<");
+			return ;
+		}
+		
+		if(hasIncr || hasFull){
+			try {
+				fullscheduler = StdSchedulerFactory.getDefaultScheduler();
+				incrscheduler = StdSchedulerFactory.getDefaultScheduler();
+				logger.warn("增量dump调度器 " + incrscheduler.getSchedulerName());
+				logger.warn("全量dump调度器 " + fullscheduler.getSchedulerName());
+				if(hasFull){
+					fullscheduler.scheduleJob(fullJobDetail, fullTrigger);
+				}
+				if(hasIncr){
+					incrscheduler.scheduleJob(incrJobDetail, incrTrigger);
+				}
+			} catch (SchedulerException e) {
+				throw new TerminatorInitException("设置时间任务调度失败",e);
+			}
+			
+			try {
+				fullscheduler.start();
+				incrscheduler.start();
+			} catch (SchedulerException e) {
+				throw new TerminatorInitException("启动时间任务失败",e);
+			}
+		}else{
+			logger.warn(">>>>>>>>> 客户端及没有配置增量的DataProvider又没有配置全量的DataProvider,请配置.");
+		}
+	}
+
+	public boolean isLocalFileTest() {
+		return localFileTest;
+	}
+
+	public void setLocalFileTest(boolean localFileTest) {
+		this.localFileTest = localFileTest;
+	}
+}

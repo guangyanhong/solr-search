@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/multicast
+END
+Sender.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/multicast/Sender.java
+END
+Reciever.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/multicast/Reciever.java
+END

@@ -1,0 +1,4 @@
+2.5.0 基础第一版
+2.5.1 修复了一些小的bug,比如数据库连接的释放问题
+2.5.2 修复了一台机器跑多个TerminatorBean的问题，DumpController和ZKTimeManager和serviceName参数绑定，防止单例带来的混乱 （2010-8-10） 
+      SingleTableDataProvider的自定义SqlFunction的问题，MultiTableProvider不能注入这个属性

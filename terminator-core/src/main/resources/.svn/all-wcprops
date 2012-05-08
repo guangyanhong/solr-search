@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/resources
+END
+solrconfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/resources/solrconfig.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/resources/log4j.xml
+END

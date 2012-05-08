@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime
+END
+LeaderContainer.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/LeaderContainer.java
+END
+TerminatorIndexReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/TerminatorIndexReader.java
+END
+PayloadSimilarity.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/PayloadSimilarity.java
+END
+MasterListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/MasterListener.java
+END
+TerminatorDirectoryFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/TerminatorDirectoryFactory.java
+END
+RealTimeUpdateHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/RealTimeUpdateHandler.java
+END
+FullTimer.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/FullTimer.java
+END
+RealTimeIndexReaderFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/RealTimeIndexReaderFactory.java
+END
+DirectRAMIndexRealTimeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/DirectRAMIndexRealTimeService.java
+END
+SelfPublisher.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/SelfPublisher.java
+END
+BuildIndexJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/BuildIndexJob.java
+END
+TerminatorIndexReader3.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/TerminatorIndexReader3.java
+END
+FullDumpJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/FullDumpJob.java
+END
+TerminatorUpdateHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/TerminatorUpdateHandler.java
+END
+Bootstraper3.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/Bootstraper3.java
+END
+DocIdMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/DocIdMapper.java
+END
+RealTimeIndexReaderFactory3.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/RealTimeIndexReaderFactory3.java
+END
+PayloadSimilarityFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/PayloadSimilarityFactory.java
+END
+DefaultRealTimeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/DefaultRealTimeService.java
+END
+TerminatorQueryPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/TerminatorQueryPlugin.java
+END
+DefaultSearchService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/DefaultSearchService.java
+END
+FollowerContainer.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/FollowerContainer.java
+END
+UIDTokenStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/realtime/UIDTokenStream.java
+END

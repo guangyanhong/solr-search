@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	
+	<bean id="terminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init" >
+		<property name="serviceName" value="search4tag" />
+		<property name="zkAddress"   value="192.168.211.29:2181"/>
+		<property name="fullCronExpression"   value="0 0/10 * * * ?"/>
+		<property name="incrCronExpression"   value="0 0/2 * * * ?"/>
+		<property name="startupTimerTask"         value="true"/>
+	</bean>
+	
+	<bean name="groupRouter" class="org.taobao.terminator.client.search4tag.Search4TagRouter">
+		<property name="shardKey" value="id" />
+	</bean>
+	
+	<bean name="dataProcessor" class="org.taobao.terminator.client.search4tag.Search4TagBoostProcessor" />
+
+	<!-- 数据源配置 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"             value="jdbc:mysql://192.168.205.21:3306/yusen_test?characterEncoding=GBK" />
+		<property name="username"		 value="yusen" />
+		<property name="password" 		 value="yusen" />
+	</bean>
+	
+	<!-- 全量数据导出Bean -->
+	<bean id="fullDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource"     ref="dataSource"/>
+		<property name="subtableDesc"   value="0-7"/>
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				select 
+					id ,product_id as productId ,product_type as productType,entity_type as entityType ,entity_tags as tags,entity_url as entityUrl , product_create 
+				from 
+					tag_entity$tablename$ 
+				where 
+					gmt_modified<'$lastModified$' 
+				and 
+					product_create is not null
+				]]>
+			</value>
+		</property>
+	</bean>
+
+	<bean id="incrDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource"     ref="dataSource"/>
+		<property name="subtableDesc"   value="0-7"/>
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				select 
+					id ,product_id as productId ,product_type as productType,entity_type as entityType ,entity_tags as tags,entity_url as entityUrl , product_create 
+				from 
+					tag_entity$tablename$ 
+				where 
+					gmt_modified<='$endDate$'
+				and
+					gmt_modified>='$startDate$' 
+				and 
+					product_create is not null
+				]]>
+			</value>
+		</property>
+	</bean>
+</beans>

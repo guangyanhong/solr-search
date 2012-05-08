@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index
+END
+DumperController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/DumperController.java
+END
+FetchDataExceptionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/FetchDataExceptionHandler.java
+END
+IndexProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/IndexProvider.java
+END
+IndexProvider4Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/IndexProvider4Test.java
+END
+IncrIndexProvideJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/IncrIndexProvideJob.java
+END
+TerminatorIndexProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/TerminatorIndexProvider.java
+END
+TerminatorIndexProvider2.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/TerminatorIndexProvider2.java
+END
+FullIndexProvideJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/main/java/com/taobao/terminator/client/index/FullIndexProvideJob.java
+END

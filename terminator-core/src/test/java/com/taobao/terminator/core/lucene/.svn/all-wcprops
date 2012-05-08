@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/lucene
+END
+PayloadAnalyzerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/lucene/PayloadAnalyzerTest.java
+END
+IndexWriteTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/lucene/IndexWriteTest.java
+END
+SpanQueryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/test/java/com/taobao/terminator/core/lucene/SpanQueryTest.java
+END

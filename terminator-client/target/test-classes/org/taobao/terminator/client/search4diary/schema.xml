@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<schema name="example core" version="1.1">
+	<types>
+		<fieldtype name="string_pd" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+			<analyzer class="net.paoding.analysis.analyzer.PaodingAnalyzer"></analyzer>
+		</fieldtype>
+		<fieldtype name="string" class="solr.TextField" sortMissingLast="true" />
+		<fieldtype name="long"   class="solr.LongField" omitNorms="true"/>
+		<fieldType name="int"    class="solr.IntField" />
+		<fieldType name="tlong"  class="solr.TrieLongField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+	</types>
+
+	<fields>
+		<field name="id"          type="long"       indexed="true"  stored="true" multiValued="false" required="true"/>
+		<field name="userId"      type="long"       indexed="true"  stored="true" multiValued="false"/>
+		<field name="content"     type="string_pd"  indexed="true"  stored="true" multiValued="false"/>
+		<field name="optId"       type="long"       indexed="true"  stored="true" multiValued="false"/>
+		<field name="optNick"     type="string"     indexed="true"  stored="true" multiValued="false"/>
+		<field name="auditStatus" type="int"        indexed="true"  stored="true" multiValued="false"/>
+		<field name="gmtCreate"   type="tlong"      indexed="true"  stored="true" multiValued="false"/>
+	</fields>
+
+  <uniqueKey>id</uniqueKey>
+  <defaultSearchField>content</defaultSearchField>
+  <solrQueryParser defaultOperator="OR"/>
+</schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="ds1" class="com.taobao.terminator.common.data.TerminatorDataSource">
+		<property name="name" value="ds1" />
+		<property name="path" value="d:\\ds.xml" />
+	</bean>
+	
+	<bean id="dataProvider" class="com.taobao.terminator.common.data.MultiTableDataProvider" init-method="init">
+		<property name="subtableDesc" value="ds1:0-1" />
+		<property name="sql" value="SELECT 
+										id, 
+										product_id, 
+										product_id_hash 
+									FROM 
+										tag_entity$tablename$" />
+	</bean>
+</beans> 

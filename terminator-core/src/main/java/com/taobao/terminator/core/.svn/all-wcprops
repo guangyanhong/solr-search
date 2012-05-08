@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core
+END
+ContextInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/ContextInfo.java
+END
+ConfigControllor.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/ConfigControllor.java
+END
+SolrComponentsAware.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/SolrComponentsAware.java
+END
+SolrConfigGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/SolrConfigGenerator.java
+END

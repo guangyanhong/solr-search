@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx
+END
+RangeField.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx/RangeField.java
+END
+SLongRangeField.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx/SLongRangeField.java
+END
+SShortRangeField.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx/SShortRangeField.java
+END
+XIntField.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx/XIntField.java
+END
+SIntRangeFiled.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/fieldx/SIntRangeFiled.java
+END

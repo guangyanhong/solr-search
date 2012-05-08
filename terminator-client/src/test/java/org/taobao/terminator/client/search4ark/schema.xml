@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<schema name="search4ark-schema" version="1.1">
+  <types>
+    	<fieldtype name="string"    class="solr.TextField"    sortMissingLast="true" omitNorms="true" />
+        <fieldType name="long"      class="solr.LongField"     omitNorms="true"/>
+        <fieldType name="slong"     class="solr.SortableLongField" sortMissingLast="true" omitNorms="true"/>
+        
+        <fieldtype name="str_word" class="solr.TextField" sortMissingLast="true" omitNorms="false">
+                <analyzer class="org.apache.lucene.analysis.cn.ChineseAnalyzer"></analyzer>
+        </fieldtype>
+         <fieldtype name="str_ws" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            </analyzer>
+        </fieldtype>
+  </types>
+
+  <fields>
+    <field name="id"             			type="long"      indexed="true"   stored="true"  multiValued="false" required="true"/>
+    <field name="name"           			type="str_word"  indexed="true"   stored="true"  multiValued="false"/>
+    <field name="description"    			type="string"    indexed="false"  stored="true"  multiValued="false"/>
+    <field name="detail_url"     			type="string"    indexed="false"  stored="true"  multiValued="false"/>
+    <field name="logo_url"       			type="string"    indexed="false"  stored="true"  multiValued="false"/>
+    <field name="isv_id"         			type="long"      indexed="false"  stored="true"  multiValued="false"/>
+    <field name="service_type"   			type="long"      indexed="false"  stored="true"  multiValued="false"/>
+    <field name="service_status" 			type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="is_frozen"      			type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="sp_status"      			type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="target_user_type"  		type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_is_top"                 type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_is_hidden"              type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_is_online_subscribe"    type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="user_count"     			type="slong"     indexed="false"  stored="true"  multiValued="false"/>
+    <field name="visit_count"    			type="slong"     indexed="false"  stored="true"  multiValued="false"/>
+    <field name="service_release_time"    	type="slong"     indexed="true"   stored="true"  multiValued="false"/>
+    <field name="category_id"         		type="long"      indexed="false"  stored="true"  multiValued="false"/>
+    <field name="is_delete"       			type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="gmt_modified"      		type="long"      indexed="false"  stored="true"  multiValued="false"/>
+    <field name="nick"      				type="string"    indexed="false"  stored="true"  multiValued="false"/>
+    <field name="service_wangwang"       	type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_isv_type"    			type="long"      indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_cat_map_path"    		type="str_ws"    indexed="true"   stored="true"  multiValued="false"/>
+    <field name="se_property"    			type="str_ws"    indexed="true"   stored="true"  multiValued="false"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+  <defaultSearchField>id</defaultSearchField>
+  <solrQueryParser defaultOperator="OR"/>
+</schema>

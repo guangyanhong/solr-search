@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<schema name="search4ecrm" version="1.1">
+	 <types>
+	     <fieldtype name="string"       class="solr.TextField"         tokenized="false"   omitNorms="true" omitTermFreqAndPositions= "true"/>
+	     <fieldType name="long"         class="solr.LongField"         tokenized="false"   omitNorms="true" omitTermFreqAndPositions= "true"/>
+	     <fieldType name="int"          class="solr.IntField"          tokenized="false"   omitNorms="true" omitTermFreqAndPositions= "true"/>
+	     <fieldType name="slong"        class="solr.SortableLongField" tokenized="false"   omitNorms="true" omitTermFreqAndPositions= "true"/>
+	     <fieldType name="tlong"        class="solr.TrieLongField"     tokenized="false"   omitNorms="true" omitTermFreqAndPositions= "true" precisionStep="8" />
+	     <fieldType name="string_deli"  class="solr.TextField"         tokenized="true"    omitNorms="true" omitTermFreqAndPositions= "true">
+				<analyzer class="com.taobao.terminator.realtime.analyzer.DelimiterAnanlyzer"/>
+	     </fieldType>
+	 </types>
+
+	 <fields>
+	 		<!-- Store & Index -->
+	       <field name="id"       type="long"        indexed="true"  stored="true"  multiValued="false" required="true"/>
+	       <field name="s_id"     type="long"        indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="b_id"     type="long"        indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="nick"     type="string"      indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="level"    type="int"         indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="m_p"      type="string"      indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="sex"      type="string"      indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="pro"      type="string"      indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="city"     type="string"      indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="source"   type="string"      indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="group"    type="string_deli" indexed="true"  stored="true"  multivalued="false"/> <!-- analyze -->
+	       <field name="count"    type="tlong"       indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="am"       type="tlong"       indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="l_t"      type="tlong"       indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="bir"      type="tlong"       indexed="true"  stored="true"  multiValued="false"/>
+	       <field name="i_c"      type="tlong"       indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="a_p"      type="tlong"       indexed="true"  stored="true"  multivalued="false"/>
+	       <field name="c_n"      type="tlong"       indexed="true"  stored="true"  multiValued="false"/>
+	       
+	       <!-- Just store -->
+	       <field name="email"    type="string"      indexed="flase" stored="true"  multiValued="false"/>
+	       <field name="add"      type="string"      indexed="flase" stored="true"  multiValued="false"/>
+	       <field name="new_c"    type="string"      indexed="flase" stored="true"  multiValued="false"/>
+	       <field name="new_a"    type="string"      indexed="flase" stored="true"  multiValued="false"/>
+	       <field name="momo"     type="string"      indexed="flase" stored="true"  multiValued="false"/>
+	       <field name="status"   type="string"      indexed="false" stored="true"  multiValued="false"/>
+	</fields>
+	
+	 <uniqueKey>id</uniqueKey>
+	 <defaultSearchField>id</defaultSearchField>
+	 <solrQueryParser defaultOperator="OR"/>
+</schema>

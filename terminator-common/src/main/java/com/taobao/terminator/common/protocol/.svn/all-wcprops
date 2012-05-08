@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol
+END
+AddDocumentRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/AddDocumentRequest.java
+END
+TerminatorInputDocument.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/TerminatorInputDocument.java
+END
+FetchFileListResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/FetchFileListResponse.java
+END
+TerminatorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/TerminatorService.java
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/pom.xml
+END
+MasterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/MasterService.java
+END
+TerminatorDeleteRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/TerminatorDeleteRequest.java
+END
+TerminatorQueryRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/TerminatorQueryRequest.java
+END
+TerminatorDocument.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/TerminatorDocument.java
+END
+RealTimeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/RealTimeService.java
+END
+DeleteByIdRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/DeleteByIdRequest.java
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/Address.java
+END
+SearchService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/SearchService.java
+END
+RouteValueSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/RouteValueSupport.java
+END
+UpdateDocumentRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/UpdateDocumentRequest.java
+END
+DeleteByQueryRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-common/src/main/java/com/taobao/terminator/common/protocol/DeleteByQueryRequest.java
+END

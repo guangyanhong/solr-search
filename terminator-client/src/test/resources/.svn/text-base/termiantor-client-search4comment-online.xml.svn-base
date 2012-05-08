@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+
+	<bean id="terminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init">
+		<property name="serviceName" value="search4comment" />
+		<property name="zkAddress" value="192.168.211.29:2181" />  <!-- 配置项 -->
+		<property name="fullCronExpression" value="0 0 2 * * ?" /><!-- 配置项 -->
+		<property name="incrCronExpression" value="0 0/10 * * * ?" /><!-- 配置项 -->
+		<property name="startupTimerTask" value="true" />
+	</bean>
+
+	<bean name="dataProcessor" class="org.taobao.terminator.client.search4comment.CommentDataProcessor" />
+	
+	<bean id="snscommentds2" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:snscommentds2"></property>
+    </bean>
+    
+    <bean id="snsfeedds1b" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:snsfeedds1b"></property>
+    </bean>
+    <bean id="snsfeedds2b" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:snsfeedds2b"></property>
+    </bean>
+    <bean id="snsfeedds3b" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:snsfeedds3b"></property>
+    </bean>
+    <bean id="snsfeedds4b" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:snsfeedds4b"></property>
+    </bean>
+
+	<!-- 全量数据导出Bean -->
+	<bean id="commentFullDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snscommentds2" />
+		<property name="subtableDesc" value="0-31" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id            as id,
+					target_id     as subjectId,
+					pro_user_id   as ownerId,
+					pro_user_nick as ownerNick,
+					content       as content,
+					gmt_create    as gmtCreate,
+					is_deleted    as isDeleted,
+					0             as fromType
+				FROM 
+					comment$tablename$ 
+				WHERE 
+					is_deleted = 0
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="feedCommentFullDataProvider1" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds1b" />
+		<property name="subtableDesc" value="0-1" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentFullDataProvider2" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds2b" />
+		<property name="subtableDesc" value="2-3" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentFullDataProvider3" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds3b" />
+		<property name="subtableDesc" value="4-5" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentFullDataProvider4" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds4b" />
+		<property name="subtableDesc" value="6-7" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				]]>
+			</value>
+		</property>
+	</bean>
+
+	<bean id="fullDataProvider" class="com.taobao.terminator.client.index.data.MultiDBDataProvider" init-method="init">
+		<property name="dataProviders">
+			<list>
+				<ref bean="commentFullDataProvider" />
+				<ref bean="feedCommentFullDataProvider1" />
+				<ref bean="feedCommentFullDataProvider2" />
+				<ref bean="feedCommentFullDataProvider3" />
+				<ref bean="feedCommentFullDataProvider4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="commentIncrDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snscommentds2" />
+		<property name="subtableDesc" value="0-31" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id            as id,
+					target_id     as subjectId,
+					pro_user_id   as ownerId,
+					pro_user_nick as ownerNick,
+					content       as content,
+					gmt_create    as gmtCreate,
+					is_deleted    as isDeleted,
+					0             as fromType 
+				FROM 
+					comment$tablename$ 
+				WHERE 
+					gmt_modified<='$endDate$'
+				AND
+					gmt_modified>='$startDate$' 
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="feedCommentIncrDataProvider1" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds1b" />
+		<property name="subtableDesc" value="0-1" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				WHERE 
+					gmt_create<='$endDate$'
+				AND
+					gmt_create>='$startDate$' 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentIncrDataProvider2" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds2b" />
+		<property name="subtableDesc" value="2-3" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				WHERE 
+					gmt_create<='$endDate$'
+				AND
+					gmt_create>='$startDate$' 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentIncrDataProvider3" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds3b" />
+		<property name="subtableDesc" value="4-5" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				WHERE 
+					gmt_create<='$endDate$'
+				AND
+					gmt_create>='$startDate$' 
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="feedCommentIncrDataProvider4" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="snsfeedds4b" />
+		<property name="subtableDesc" value="6-7" /><!-- 配置项 -->
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id         as id,
+					feed_id    as subjectId,
+					comments   as content,
+					User_id    as ownerId,
+					nick       as ownerNick,
+					gmt_create as gmtCreate,
+					0          as isDeleted,
+					1          as fromType
+				FROM 
+					feed_comment$tablename$ 
+				WHERE 
+					gmt_create<='$endDate$'
+				AND
+					gmt_create>='$startDate$' 
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="incrDataProvider" class="com.taobao.terminator.client.index.data.MultiDBDataProvider" init-method="init">
+		<property name="dataProviders">
+			<list>
+				<ref bean="commentIncrDataProvider" />
+				<ref bean="feedtCommentFullDataProvider1" />
+				<ref bean="feedtCommentFullDataProvider2" />
+				<ref bean="feedtCommentFullDataProvider3" />
+				<ref bean="feedtCommentFullDataProvider4" />
+			</list>
+		</property>
+	</bean>
+</beans>

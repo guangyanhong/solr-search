@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName"><!--
+   <bean id="resumeSearchTerminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init">
+       <property name="serviceName"          value="search4resume"/>
+       <property name="zkAddress"            value="192.168.211.29:2181" />
+       <property name="fullCronExpression"   value="0 0/10 * * * ?"/>
+	   <property name="incrCronExpression"   value="0 0/2 * * * ?"/>
+	   <property name="startupTimerTask"     value="true"/>
+	   <property name="fullDataProvider"     ref="resumeFullDataProvider"/>
+	   <property name="incrDataProvider"     ref="resumeIncrDataProvider"/>
+	    <property name="dataProcessor"       ref="resumeDataProcessor"/>
+   </bean>
+   
+ 
+   --><bean id="jobSearchTerminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init">
+       <property name="serviceName"          value="search4job"/>
+       <property name="zkAddress"  			 value="192.168.211.29:2181" />
+       <property name="fullCronExpression"   value="0 0/10 * * * ?"/>
+	   <property name="incrCronExpression"   value="0 0/2 * * * ?"/>
+	   <property name="startupTimerTask"     value="false"/>
+	   <property name="fullDataProvider"     ref="jobFullDataProvider"/>
+	   <property name="incrDataProvider"     ref="jobIncrDataProvider"/>
+	   <property name="dataProcessor"        ref="jobDataProcessor"/>
+   </bean>
+   
+   <bean id="jobDataProcessor" class="org.taobao.terminator.client.search4zhaopin.JobDataProcessor" />
+   
+   <bean id="zhaopinDS" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"             value="jdbc:mysql://10.232.31.7:3306/zhaopin?characterEncoding=GBK" />
+		<property name="username"		 value="zhaopin" />
+		<property name="password" 		 value="zhaopin" />
+	</bean>
+
+	<bean id="jobFullDataProvider" class="com.taobao.terminator.client.index.data.SingleTableDataProvider">
+		<property name="dataSource"     ref="zhaopinDS"/>
+		<property name="sql">
+			<value>
+			<![CDATA[ 
+			SELECT 
+				j.id  			as id , 
+				j.job_title 	as title,
+				j.catalogs 		as catalogs,
+				j.busi_scope 	as scope,
+				j.mode			as mode,
+				j.work_way 		as workWay,
+				j.edu_level 	as eduLevel ,
+				j.sex 			as sex ,
+				j.num 			as requireNum,
+				j.salary 		as salary,
+				j.province 		as province ,
+				j.city 			as city ,
+				j.description 	as description ,
+				j.gmt_modified 	as gmtModified,
+				j.gmt_pubdate 	as pubDate ,
+				c.company_name 	as companyName 
+			FROM 
+				job_detail j, company_info c 
+			WHERE 
+					j.status=2 
+				AND 
+					c.status=1
+				AND 
+					j.company_id=c.id
+			]]>
+			</value>
+		</property>		
+	</bean>
+	
+	<bean id="resumeFullDataProvider" class="com.taobao.terminator.client.index.data.SingleTableDataProvider">
+		<property name="dataSource"     ref="zhaopinDS"/>
+		<property name="sql">      
+		    <value>
+		    <![CDATA[
+			SELECT 
+				r.id            as id ,
+				r.introduction  as introduction,
+				r.work_way      as workWay,
+				r.work_mode     as mode ,
+				r.busi_scope    as scope,
+				r.catalogs      as catalogs,
+				r.province      as province,
+				r.city          as city ,
+				u.real_name     as name ,
+				u.sex 			as sex,
+				u.birthday 		as birthday,
+				u.edu_level 	as eduLevel,
+				u.pic_url 		as picUrl ,
+				r.gmt_modified 	as gmtModified 
+			FROM 
+				resume_detail r,user_info u 
+			WHERE 
+					r.status=1 
+				AND 
+					r.search_status=1 
+				AND 
+					r.user_id=u.user_id 
+				AND 
+					r.is_delete=0 
+			]]>
+			</value>
+		</property> 
+	</bean>
+
+
+	<!-- 增量数据导出Bean -->
+	<bean id="jobIncrDataProvider" class="com.taobao.terminator.client.index.data.SingleTableDataProvider">
+		<property name="dataSource"     ref="zhaopinDS"/>
+		<property name="sql">
+			<value>
+			<![CDATA[ 
+			SELECT 
+				j.id          	as id , 
+				j.job_title		as title,
+				j.catalogs 		as catalogs,
+				j.busi_scope 	as scope,
+				j.mode			as mode,
+				j.work_way 		as workWay,
+				j.edu_level 	as eduLevel ,
+				j.sex 			as sex ,
+				j.num 			as requireNum ,
+				j.salary 		as salary,
+				j.province 		as province ,
+				j.city 			as city ,
+				j.description 	as description ,
+				j.gmt_modified 	as gmtModified,
+				j.gmt_pubdate 	as pubDate ,
+				c.company_name 	as companyName 
+			FROM 
+				job_detail j, company_info c 
+			WHERE 
+					j.status=1 
+				AND 
+					j.is_delete=0 
+				AND 
+					j.company_id=c.id 
+			ORDER BY 
+				j.gmt_modified desc
+			]]>
+			</value>
+		</property>	
+	</bean>
+	<bean id="resumeIncrDataProvider" class="com.taobao.terminator.client.index.data.SingleTableDataProvider">
+		<property name="dataSource"     ref="zhaopinDS"/>
+		<property name="sql">      
+		    <value>
+		    <![CDATA[
+			SELECT 
+				r.id 			as id ,
+				r.introduction 	as introduction,
+				r.work_way 		as workWay,
+				r.work_mode 	as mode ,
+				r.busi_scope 	as scope,
+				r.catalogs 		as catalogs,
+				r.province 		as province,
+				r.city 			as city ,
+				u.real_name 	as name ,
+				u.sex 			as sex,
+				u.birthday 		as birthday,
+				u.edu_level 	as eduLevel,
+				u.pic_url 		as picUrl ,
+				r.gmt_modified 	as gmtModified 
+			FROM 
+				resume_detail r,user_info u 
+			WHERE 
+					r.status=1 
+				AND 
+					r.search_status=1 
+				AND 
+					r.user_id=u.user_id 
+				AND 
+					r.is_delete=0 
+			ORDER BY 
+				r.gmt_modified desc
+			]]>
+			</value>
+		</property> 
+	</bean>
+</beans>

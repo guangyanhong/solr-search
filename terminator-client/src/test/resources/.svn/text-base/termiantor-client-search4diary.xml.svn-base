@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+
+	<bean id="terminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init">
+		<property name="serviceName" value="search4diary" />
+		<property name="zkAddress" value="192.168.211.29:2181" /><!-- 10.232.12.21 -->
+		<property name="fullCronExpression" value="0 0/10 * * * ?" />
+		<property name="incrCronExpression" value="0 0/2 * * * ?" />
+		<property name="startupTimerTask" value="false" />
+		<property name="localFileTest" value="false" />
+		
+	</bean>
+
+	<bean name="dataProcessor" class="org.taobao.terminator.client.search4diary.DiaryDataProcessor" />
+
+	<!-- 数据源配置 -->
+	<bean id="commentDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.205.89/snsdiary?characterEncoding=GBK" />
+		<property name="username" value="snsdiary" />
+		<property name="password" value="snsdiary" />
+	</bean>
+
+	<!-- 全量数据导出Bean -->
+	<bean id="fullDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="commentDataSource" />
+		<property name="subtableDesc" value="0-1" />
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id           as id, 
+					user_id      as userId, 
+					user_nick    as userNick, 
+					content      as content,
+					gmt_create   as gmtCreate,
+					is_deleted	 as isDeleted,
+					audit_status as auditStatus
+				FROM 
+					fa_diary$tablename$ 
+				]]>
+			</value>
+		</property>
+	</bean>
+
+	<bean id="incrDataProvider" class="com.taobao.terminator.client.index.data.MultiTableDataProvider" init-method="init">
+		<property name="dataSource" ref="commentDataSource" />
+		<property name="subtableDesc" value="0-1" />
+		<property name="baseSql">
+			<value>
+				<![CDATA[ 
+				SELECT 
+					id           as id, 
+					user_id      as userId, 
+					user_nick    as userNick, 
+					content      as content,
+					gmt_create   as gmtCreate,
+					is_deleted	 as isDeleted,
+					audit_status as auditStatus
+				FROM 
+					fa_diary$tablename$ 
+				WHERE 
+					gmt_modified<='$endDate$'
+				AND
+					gmt_modified>='$startDate$'
+				]]>
+			</value>
+		</property>
+	</bean>
+</beans>

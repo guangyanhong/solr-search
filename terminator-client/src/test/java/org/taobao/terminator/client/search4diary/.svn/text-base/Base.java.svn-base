@@ -1,0 +1,16 @@
+package org.taobao.terminator.client.search4diary;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.taobao.terminator.client.TerminatorBean4Test;
+
+public class Base {
+	protected static TerminatorBean4Test bean;
+	
+	static{
+		ApplicationContext context = new ClassPathXmlApplicationContext("termiantor-client-search4diary.xml");
+		bean = (TerminatorBean4Test)context.getBean("terminator");
+	}
+	
+}

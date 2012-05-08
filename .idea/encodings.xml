@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/AbstractIndexProvider.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/DefaultDumpService.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/DumpService.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/FullDumpJob.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/FullIndexProvider.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/IncrDumpJob.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/SolrCommandBuilder.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/TerminatorContextLoader.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/TimeoutThread.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/dump/Timer.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/index/importer/FullDataImporter.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/terminator-core/src/main/java/com/taobao/terminator/core/util/FullIndexFileFilter.java" charset="GB2312" />
+  </component>
+</project>
+

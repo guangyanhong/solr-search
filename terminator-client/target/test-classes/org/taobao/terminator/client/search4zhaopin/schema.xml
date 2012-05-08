@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<schema name="search4job" version="1.1">
+	<types>
+		<fieldtype name="string_pd" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+			<analyzer class="net.paoding.analysis.analyzer.PaodingAnalyzer"></analyzer>
+		</fieldtype>
+		<fieldtype name="string" class="solr.TextField" sortMissingLast="true" />
+		<fieldtype name="long"   class="solr.LongField" omitNorms="true"/>
+		<fieldType name="int"    class="solr.IntField" />
+		<fieldType name="tlong"  class="solr.TrieLongField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+	</types>
+
+	<fields>
+	      <field name="id"          type="int"       index="false" stored="true"/>
+	      <field name="title"       type="string_pd" index="true"  stored="true"/>
+	      <field name="catalogs"    type="string"    index="true"  stored="true"/>
+	      <field name="scope"       type="string"    index="true"  stored="true"/>
+	      <field name="mode"        type="string"    index="true"  stored="true"/>
+	      <field name="workWay"     type="string"    index="true"  stored="true"/>
+	      <field name="eduLevel"    type="string"    index="true"  stored="true"/>
+	      <field name="sex"         type="string"    index="true"  stored="true"/>
+	      <field name="requireNum"  type="int"       index="false" stored="true"/>
+	      <field name="salary"      type="string"    index="false" stored="true"/>
+	      <field name="province"    type="string"    index="true"  stored="true"/>
+	      <field name="city"        type="string"    index="true"  stored="true"/>
+	      <field name="description" type="string_pd" index="false" stored="true"/>
+	      <field name="gmtModified" type="tlong"     index="false" stored="true"/>
+	      <field name="pubDate"     type="tlong"     index="true"  stored="true"/>
+	      <field name="companyName" type="string"    index="true"  stored="true"/>
+	</fields>
+
+  <uniqueKey>id</uniqueKey>
+  <defaultSearchField>title</defaultSearchField>
+  <solrQueryParser defaultOperator="OR"/>
+</schema>

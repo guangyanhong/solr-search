@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/terminator/!svn/ver/4109/trunk/terminator
+END
+release.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/terminator/!svn/ver/4109/trunk/terminator/release.xml
+END
+package.bat
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/terminator/!svn/ver/4109/trunk/terminator/package.bat
+END
+build.bat
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/terminator/!svn/ver/4109/trunk/terminator/build.bat
+END
+eclipse.bat
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/terminator/!svn/ver/4109/trunk/terminator/eclipse.bat
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/terminator/!svn/ver/4109/trunk/terminator/pom.xml
+END

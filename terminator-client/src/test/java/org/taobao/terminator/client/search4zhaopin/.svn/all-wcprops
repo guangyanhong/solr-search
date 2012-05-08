@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin
+END
+schema.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/schema.xml
+END
+CatalogTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/CatalogTypeEnum.java
+END
+BusiScopeTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/BusiScopeTypeEnum.java
+END
+JobDataProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/JobDataProcessor.java
+END
+ResumeIndexProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/ResumeIndexProcessor.java
+END
+Base.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/Base.java
+END
+Dumper.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/Dumper.java
+END
+Searcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-client/src/test/java/org/taobao/terminator/client/search4zhaopin/Searcher.java
+END

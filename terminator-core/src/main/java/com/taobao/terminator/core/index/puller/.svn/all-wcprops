@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/index/puller
+END
+IndexPullHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/index/puller/IndexPullHandler.java
+END
+IndexPullException.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/index/puller/IndexPullException.java
+END
+IndexPuller.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/index/puller/IndexPuller.java
+END

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<docs>
+	<add overwrite="true">
+		<doc boost="1.0f">
+			<field name="gmtModified">20101102</field>
+			<field name="pubDate">20101102</field>
+			<field name="sex">2</field>
+			<field name="keywords">客服 潮人馆韩版女装.沫沫家小怡瑞丽依佳人luna天使之城安都 tkdfeel</field>
+			<field name="requireNum"> 5 </field>
+			<field name="scope">男女服装 箱包/鞋帽 化妆品 </field>
+			<field name="status">1</field>
+			<field name="workWay">2</field>
+			<field name="companyName">广州市晴日贸易有限公司</field>
+			<field name="deleted">0</field>
+			<field name="city">广州市</field>
+			<field name="mode">2</field>
+			<field name="id">4740</field>
+			<field name="title">客服</field>
+			<field name="description">淘宝客服&#xd; &#xd; 熟悉产品&#xd; &#xd;答疑客人问题&#xd;&#xd;帮客人下单</field>
+			<field name="province">广东</field>
+			<field name="shopLevel">100001</field>
+			<field name="catalogs">客服 </field>
+			<field name="salary">1</field>
+			<field name="eduLevel">0</field>
+			<field name="companyId">3224</field>
+		</doc>
+	</add>
+</docs>

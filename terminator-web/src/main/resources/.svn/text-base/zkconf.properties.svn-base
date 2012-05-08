@@ -1,0 +1,2 @@
+zkAddress = 192.168.211.29:2181
+zkClientTimeout = 3000

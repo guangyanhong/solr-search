@@ -1,0 +1,15 @@
+package com.taobao.terminator.common.hsftest;
+
+import com.taobao.hsfunit.app.spring.util.HSFSpringConsumerBean;
+
+public class Subscriber2 {
+	public static void main(String[] args) throws Exception {
+		HSFSpringConsumerBean hsfConsumerBean = new HSFSpringConsumerBean();
+		hsfConsumerBean.setInterfaceName("com.taobao.terminator.common.hsftest.HelloService");
+		hsfConsumerBean.setVersion("192.168.222.32");
+		hsfConsumerBean.setGroup("Terminator-Service-Inner");
+		hsfConsumerBean.init();
+		HelloService h = (HelloService)hsfConsumerBean.getObject();
+		System.out.println(h.sayHello());
+	}
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataSources>
+	<dataSource name="ds1">
+		<driver>com.mysql.jdbc.Driver</driver>
+		<url>jdbc:mysql://10.232.31.33:3306/tag</url>
+		<username>tag</username>
+		<password>tag</password>
+	</dataSource>
+</dataSources>

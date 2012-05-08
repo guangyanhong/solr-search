@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GBK"?>
+<assembly>
+	<baseDirectory>terminator-search.war</baseDirectory>
+
+	<formats>
+		<format>tar.gz</format>
+	</formats>	
+	
+	<fileSets>
+        <fileSet>
+            <directory>terminator-web/target/deploy/terminator-search.war</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+	
+</assembly>

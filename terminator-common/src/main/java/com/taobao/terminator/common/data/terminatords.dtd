@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT dataSources (dataSource+)>
+<!ELEMENT dataSource (driver, url, username, password, properties?)>
+<!ATTLIST dataSource name ID #REQUIRED>
+<!ATTLIST dataSource type ("mysql"|"oracle") "mysql">
+<!ELEMENT driver (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ELEMENT properties (property+)>
+<!ELEMENT property EMPTY>
+<!ATTLIST property name ID #REQUIRED>
+<!ATTLIST property value CDATA #REQUIRED>

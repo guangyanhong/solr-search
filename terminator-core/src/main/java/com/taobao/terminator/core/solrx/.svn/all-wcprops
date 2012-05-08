@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx
+END
+PayloadAnalyzer.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/PayloadAnalyzer.java
+END
+PayloadSimilarity.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/PayloadSimilarity.java
+END
+NoLengthNormSimilarity.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/NoLengthNormSimilarity.java
+END
+SnsCompanySearchQueryPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/SnsCompanySearchQueryPlugin.java
+END
+PayloadTermQueryPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/PayloadTermQueryPlugin.java
+END
+TstarQParserPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/TstarQParserPlugin.java
+END
+CompanySimilarity.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/CompanySimilarity.java
+END
+ProfilerQuerycomponet.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/ProfilerQuerycomponet.java
+END
+TagDelimitedPayloadTokenFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/repos/terminator/!svn/ver/4109/trunk/terminator/terminator-core/src/main/java/com/taobao/terminator/core/solrx/TagDelimitedPayloadTokenFilter.java
+END

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">	
+	<bean id="terminator" class="com.taobao.terminator.client.TerminatorBean4Test" init-method="init" >
+		<property name="serviceName" value="search4ark" />
+		<property name="zkTimeout"   value="10000" />
+		<property name="zkAddress"   value="192.168.211.29:2181"/>
+		<property name="fullCronExpression"   value="0 0/10 * * * ?"/>
+		<property name="incrCronExpression"   value="0 0/2 * * * ?"/>
+		<property name="startupTimerTask"     value="false"/>
+		<property name="fullDataProvider" ref="fullDataProvider" />
+		<property name="incrDataProvider" ref="incrDataProvider" />
+	</bean>
+
+	<bean name="serviceDataProcessor" class="com.taobao.topservice.search.index.ServiceDataProcessor" />
+	
+	<!-- 全量数据导出Bean -->
+	<bean id="fullDataProvider" class="com.taobao.topservice.search.index.TopSingleTableDataProvider">
+		<property name="dataSource"     ref="DBC"/>		
+		<property name="serviceName"    value="search4ark"/>
+		<property name="sql">
+			<value>
+				<![CDATA[ 
+				SELECT 	   T1.ID,
+					       T1.NAME,
+					       T1.DESCRIPTION,
+					       T1.DETAIL_URL,
+					       T1.LOGO_URL,
+					       T1.ISV_ID,
+					       T1.SERVICE_TYPE,
+					       T1.SERVICE_STATUS,
+					       T1.IS_FROZEN,
+					       T1.SP_STATUS,
+					       T1.TARGET_USER_TYPE,
+					       T1.SERVICE_TAG,
+					       T1.USER_COUNT,
+					       T1.VISIT_COUNT,
+					       T1.SERVICE_RELEASE_TIME,
+					       T1.CATEGORY_ID,
+					       T1.IS_DELETED,
+					       T1.GMT_MODIFIED,
+					       T2.SP_NAME,
+					       T2.SERVICE_WANGWANG,
+					       T2.USER_TAG,
+					       T2.ISV_TYPE
+  				FROM 
+  					TOPS_SERVICE T1, TOP_TADGET_ISV_EXT T2
+ 				WHERE 
+ 					T1.ISV_ID = T2.ISV_ID 
+ 				AND 
+ 					T1.GMT_MODIFIED < to_date('$now$','yyyy-mm-dd hh24:mi:ss')
+ 				AND 
+ 					T1.IS_DELETED = 0
+ 			 ]]>
+			</value>
+		</property>
+	</bean>
+
+	<bean id="incrDataProvider" class="com.taobao.topservice.search.index.TopSingleTableDataProvider">
+		<property name="dataSource"     ref="DBC"/>
+		<property name="serviceName"    value="search4ark"/>
+		<property name="sql">
+			<value>
+				<![CDATA[ 
+			  SELECT   T1.ID,
+				       T1.NAME,
+				       T1.DESCRIPTION,
+				       T1.DETAIL_URL,
+				       T1.LOGO_URL,
+				       T1.ISV_ID,
+				       T1.SERVICE_TYPE,
+				       T1.SERVICE_STATUS,
+				       T1.IS_FROZEN,
+				       T1.SP_STATUS,
+				       T1.TARGET_USER_TYPE,
+				       T1.SERVICE_TAG,
+				       T1.USER_COUNT,
+				       T1.VISIT_COUNT,
+				       T1.SERVICE_RELEASE_TIME,
+				       T1.CATEGORY_ID,
+				       T1.IS_DELETED,
+				       T1.GMT_MODIFIED,
+				       T2.SP_NAME,
+				       T2.SERVICE_WANGWANG,
+				       T2.USER_TAG,
+				       T2.ISV_TYPE
+  				FROM 
+  					TOPS_SERVICE T1, TOP_TADGET_ISV_EXT T2
+ 				WHERE 
+ 					T1.ISV_ID = T2.ISV_ID 
+ 				AND 
+ 					T1.GMT_MODIFIED <  to_date('$endDate$','yyyy-mm-dd hh24:mi:ss')
+ 				AND 
+ 					T1.GMT_MODIFIED >=  to_date('$startDate$','yyyy-mm-dd hh24:mi:ss')
+				]]>
+			</value>
+		</property>
+	</bean>
+</beans>
