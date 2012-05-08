@@ -1,9 +1,0 @@
-package com.taobao.terminator.common.hsftest;
-
-public class ConfigTest {
-	public static final String PUB_NAME = "yusen";
-	public static final String SUB_NAME = "yusen";
-	public static final String DATA_ID = "search4tag-0-innerservices";
-	public static final String GROUP = "Terminator-Inner";
-	
-}

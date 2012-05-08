@@ -1,9 +1,0 @@
-K 10
-svn:ignore
-V 37
-.project
-.settings
-target
-.classpath
-
-END
